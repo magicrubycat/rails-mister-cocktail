@@ -1,0 +1,13 @@
+<!-- when we reference anything from the controller we need to use @ -->
+<h1>Welcome to your <%= @cocktail.name %> </h1>
+<% @cocktail.doses.each do |dose| %>
+  <p><%= dose.description %></p>
+  <p><%= dose.ingredient.name %></p>
+  <p><%= link_to "(delete)", "/doses/#{dose.id}", method: :delete, data: { confirm: "Are you sure???"} %></p>
+<% end %>
+
+  <!-- create a link from here back to the cocktails -->
+<%= link_to "Add Ingredients", new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
+
+<!-- add delete doses - it needs to be here in Show -->
+
