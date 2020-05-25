@@ -1,7 +1,7 @@
 <!-- when we reference anything from the controller we need to use @ -->
 <h1>Welcome to your <%= @cocktail.name %> </h1>
 <br>
-<% @article.photos.each do |photo| %>
+<% @cocktail.photos.each do |photo| %>
   <%= cl_image_tag photo.key, width: 300, height: 300, crop: :fill %>
   <% end %>
 <br>

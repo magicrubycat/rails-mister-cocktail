@@ -19,8 +19,18 @@ ingredients["drinks"].each do |ingredient|
   puts i.name
 end
 
-Cocktail.create(name: "mojito")
-Cocktail.create(name: "moscow_mule")
-Cocktail.create(name: "apero")
-Cocktail.create(name: "classic")
-Cocktail.create(name: "juicy")
+# Cocktail.create(name: "apero")
+# Cocktail.create(name: "classic")
+# Cocktail.create(name: "juicy")
+
+# require "open-uri" - we already have it
+
+picture = URI.open('https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/mojito-cocktails.jpg')
+cocktail = Cocktail.new(name: 'mojito') # it hasn't been saved yet
+cocktail.photos.attach(io: picture, filename: 'mojito.jpg', content_type: 'image/jpg')
+cocktail.save
+
+picture = URI.open('https://www.itsdrinkoclock.com/wp-content/uploads/2018/06/1529257250-460x460.jpg')
+cocktail = Cocktail.new(name: 'moscow mule') # it hasn't been saved yet
+cocktail.photos.attach(io: picture, filename: 'moscow_mule.jpg', content_type: 'image/jpg')
+cocktail.save
