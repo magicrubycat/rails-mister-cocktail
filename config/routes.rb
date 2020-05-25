@@ -6,3 +6,6 @@ Rails.application.routes.draw do
   end
   resources :doses, only: [ :destroy ]
 end
+
+# Routes - we have the root to - for the index. But now that we go online with a new database, do I need to include
+#   resources :cocktails, except: :index
